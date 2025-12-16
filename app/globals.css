@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html,
+body {
+  height: 100%;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,19 +13,32 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --max-width-container: 1440px;
+
+  /* --- BEACH SUNSET BLUE --- */
+  --beach-sky: #bee9e8; /* very light aqua */
+  --beach-water: #62b6cb; /* medium cyan/blue */
+  --beach-deep: #1b4965; /* deep navy blue */
+  --beach-cloud: #cae9ff; /* pale sky blue */
+  --beach-accent: #5fa8d3; /* softer medium blue */
+
+  /* --- COOL COASTAL VIBES --- */
+  --coastal-night: #2b2d42; /* dark slate blue */
+  --coastal-muted: #8d99ae; /* muted grayish blue */
+  --coastal-sand: #edf2f4; /* light off-white */
+  --coastal-crimson: #ef233c; /* bright red */
+  --coastal-blood: #d90429; /* darker red */
+
+  /* --- DARKER BLUES --- */
+  --blue-mist: #e0e1dd; /* very light gray-blue */
+  --blue-steel: #778da9; /* medium steel blue */
+  --blue-indigo: #415a77; /* muted indigo blue */
+  --blue-night: #1b263b; /* dark navy blue */
+  --blue-midnight: #0d1b2a; /* almost black navy */
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
