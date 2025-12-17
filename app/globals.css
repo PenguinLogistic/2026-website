@@ -8,13 +8,6 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --max-width-container: 1440px;
 
   /* --- BEACH SUNSET BLUE --- */
   --beach-sky: #bee9e8; /* very light aqua */
@@ -38,7 +31,58 @@ body {
   --blue-midnight: #0d1b2a; /* almost black navy */
 }
 
-body {
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --max-width-container: 1440px;
+
+  /* --- BEACH SUNSET BLUE --- */
+  --color-beach-sky: var(--beach-sky); /* very light aqua */
+  --color-beach-water: var(--beach-water); /* medium cyan/blue */
+  --color-beach-deep: var(--beach-deep); /* deep navy blue */
+  --color-beach-cloud: var(--beach-cloud); /* pale sky blue */
+  --color-beach-accent: var(--beach-accent); /* softer medium blue */
+
+  /* --- COOL COASTAL VIBES --- */
+  --color-coastal-night: var(--coastal-night); /* dark slate blue */
+  --color-coastal-muted: var(--coastal-muted); /* muted grayish blue */
+  --color-coastal-sand: var(--coastal-sand); /* light off-white */
+  --color-coastal-crimson: var(--coastal-crimson); /* bright red */
+  --color-coastal-blood: var(--coastal-blood); /* darker red */
+
+  /* --- DARKER BLUES --- */
+  --color-blue-mist: var(--blue-mist); /* very light gray-blue */
+  --color-blue-steel: var(--blue-steel); /* medium steel blue */
+  --color-blue-indigo: var(--blue-indigo); /* muted indigo blue */
+  --color-blue-night: var(--blue-night); /* dark navy blue */
+  --color-blue-midnight: var(--blue-midnight); /* almost black navy */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans;
+    margin: 0;
+  }
+
+  label,
+  input,
+  textarea,
+  select {
+    background-color: transparent;
+    color: inherit;
+    @apply font-sans;
+  }
 }
