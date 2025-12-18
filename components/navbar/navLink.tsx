@@ -17,7 +17,7 @@ export default function NavLink({
   onMouseEnter,
   onMouseLeave,
 }: NavLinkProps) {
-  const href = label === "Home" ? "/" : `/${label}`;
+  const href = label === "home" ? "/" : `/${label}`;
 
   return (
     <Button asChild variant="invisible">
@@ -26,14 +26,10 @@ export default function NavLink({
         data-nav-link
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="relative block overflow-hidden h-6"
+        className="relative block overflow-hidden pb-4"
       >
         <Text
-          className={cn(
-            "font-semibold px-4 transition-transform duration-500 ease-in-out",
-            scrolled && "text-white",
-            "hover:animate-slot-roll"
-          )}
+          className={cn("font-semibold px-4", scrolled && "text-white")}
           variant="large"
         >
           {capitalize(label)}

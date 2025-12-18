@@ -61,11 +61,11 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex px-20 py-10 bg-citrus-glow transition-colors duration-300",
+        "sticky top-0 z-50 flex px-20 py-10 bg-citrus-snow transition-colors duration-300",
         scrolled && "bg-blue-indigo rounded-b-3xl shadow-lg"
       )}
     >
-      <div ref={navRef} className="relative flex mr-auto justify-between w-1/3">
+      <div ref={navRef} className="relative flex mr-auto justify-between w-1/4">
         {navLinks.map((link, index) => (
           <NavLink
             key={link}
