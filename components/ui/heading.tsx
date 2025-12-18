@@ -17,11 +17,11 @@ export const headingVariants = cva("font-body font-bold", {
   },
 });
 
-export interface TextProps
+export interface HeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof headingVariants> {}
 
-export function Text({ variant, className, ...props }: TextProps) {
+export function Heading({ variant, className, ...props }: HeadingProps) {
   const Header = variant ?? "h1";
   return (
     <Header
