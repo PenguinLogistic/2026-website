@@ -29,6 +29,13 @@ body {
   --blue-indigo: #415a77; /* muted indigo blue */
   --blue-night: #1b263b; /* dark navy blue */
   --blue-midnight: #0d1b2a; /* almost black navy */
+
+  /* --- SUNNY --- */
+  --citrus-cream: #ffe69e; /* soft lemon cream */
+  --citrus-glow: #ffd991; /* warm sunshine glow */
+  --citrus-gold: #ffcc84; /* golden citrus tone */
+  --citrus-zest: #ffba78; /* bright mandarin zest */
+  --citrus-peel: #ffa86b; /* deep orange peel */
 }
 
 @theme inline {
@@ -57,6 +64,13 @@ body {
   --color-blue-indigo: var(--blue-indigo); /* muted indigo blue */
   --color-blue-night: var(--blue-night); /* dark navy blue */
   --color-blue-midnight: var(--blue-midnight); /* almost black navy */
+
+  /* --- SUNNY --- */
+  --color-citrus-cream: var(--citrus-cream); /* soft lemon cream */
+  --color-citrus-glow: var(--citrus-glow); /* warm sunshine glow */
+  --color-citrus-gold: var(--citrus-gold); /* golden citrus tone */
+  --color-citrus-zest: var(--citrus-zest); /* bright mandarin zest */
+  --color-citrus-peel: var(--citrus-peel); /* deep orange peel */
 }
 
 @layer base {
@@ -85,4 +99,23 @@ body {
     color: inherit;
     @apply font-sans;
   }
+}
+
+@keyframes slot-roll {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  50.01% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.hover\:animate-slot-roll:hover {
+  animation: slot-roll 0.6s ease-in-out forwards;
 }
