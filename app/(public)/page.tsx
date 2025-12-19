@@ -16,35 +16,38 @@ export default function Home() {
     <div className="flex flex-col gap-20">
       <section className="flex mx-auto h-[85vh] w-full items-center max-w-container gap-30 sm:p-20">
         <FadeIn variants={fadeInLeft} className="flex flex-col gap-4">
-          <div className="flex flex-col gap-4">
-            <Stagger className="flex flex-col gap-4">
-              <motion.div variants={fadeItem}>
-                <Heading className="sm:text-[100px]">Hello!</Heading>
-              </motion.div>
+          <Stagger className="flex flex-col gap-4">
+            <motion.div variants={fadeItem}>
+              <Heading className="sm:text-[100px]">Hello!</Heading>
+            </motion.div>
 
-              <motion.div variants={fadeItem}>
-                <Heading className="sm:text-[50px]">My name is</Heading>
-              </motion.div>
+            <motion.div variants={fadeItem}>
+              <Heading className="sm:text-[50px]">My name is</Heading>
+            </motion.div>
 
-              <motion.div variants={fadeItem}>
-                <Heading className="sm:text-[120px]">Ryan Fung</Heading>
-              </motion.div>
-            </Stagger>
-            <video
-              src="/videos/title.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
+            <motion.div variants={fadeItem}>
+              <Heading className="sm:text-[120px]">Ryan Fung</Heading>
+            </motion.div>
 
-            <Button className="mt-5 self-start">
-              <Link href="#about-me">
-                <Text className=" font-semibold text-white">About Me</Text>
-              </Link>
-            </Button>
-          </div>
+            <motion.div variants={fadeItem}>
+              <video
+                src="/videos/title.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            <motion.div variants={fadeItem}>
+              <Button className="mt-5 self-start">
+                <Link href="#about-me">
+                  <Text className="font-semibold text-white">About Me</Text>
+                </Link>
+              </Button>
+            </motion.div>
+          </Stagger>
         </FadeIn>
 
         <FadeIn variants={fadeInRight} className="flex flex-col gap-4">
@@ -106,6 +109,16 @@ export default function Home() {
                     Explore my portfolio to see how I blend innovation and
                     functionality to create impactful solutions.
                   </Text>
+                </motion.div>
+
+                <motion.div variants={fadeItem}>
+                  <Button className="mt-5 self-start">
+                    <Link href="/experience">
+                      <Text className=" font-semibold text-white">
+                        Learn More
+                      </Text>
+                    </Link>
+                  </Button>
                 </motion.div>
               </Stagger>
             </div>

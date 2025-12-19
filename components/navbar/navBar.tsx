@@ -62,7 +62,7 @@ export default function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 flex px-20 py-10 bg-citrus-snow transition-colors duration-300",
-        scrolled && "bg-blue-indigo rounded-b-3xl shadow-lg"
+        scrolled && "bg-blue-night rounded-b-3xl shadow-lg"
       )}
     >
       <div ref={navRef} className="relative flex mr-auto justify-between w-1/4">

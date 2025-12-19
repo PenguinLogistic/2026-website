@@ -15,7 +15,7 @@ const buttonVariants = cva(
       },
       variant: {
         default:
-          "btn-ping relative px-4 py-2 overflow-hidden bg-blue-indigo text-white shadow-xs hover:bg-blue-steel",
+          "btn-ping relative px-4 py-2 overflow-hidden bg-blue-night text-white shadow-xs hover:bg-blue-indigo",
         invisible: "bg-transparent shadow-none hover:bg-transparent px-4",
       },
       loading: {
