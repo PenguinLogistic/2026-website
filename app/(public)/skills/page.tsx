@@ -7,10 +7,10 @@ export default function SkillsPage() {
   return (
     <div className="flex flex-col">
       <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
-        <Heading variant="h1" className="font-bold">
+        <Heading variant="h1" className="font-bold sm:text-[75px]">
           What have I worked with?
         </Heading>
-        <Text variant="large" className="max-w-2xl font-semibold">
+        <Text variant="large" className="max-w-3xl font-semibold">
           There are alot of different choices and growing technologies nowadays.
           Take a look and see if the ones I&apos;ve worked with are a good match
           for your techstack.
