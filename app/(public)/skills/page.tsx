@@ -1,6 +1,6 @@
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
-import SkillCard from "./SkillCard";
+import SkillCard from "./components/skill-card";
 import { exampleSkillObjListResponse } from "@/api/skills/skills";
 
 export default function SkillsPage() {
@@ -10,10 +10,11 @@ export default function SkillsPage() {
         <Heading variant="h1" className="font-bold sm:text-[75px]">
           What have I worked with?
         </Heading>
-        <Text variant="large" className="max-w-3xl font-semibold">
-          There are alot of different choices and growing technologies nowadays.
-          Take a look and see if the ones I&apos;ve worked with are a good match
-          for your techstack.
+        <Text variant="large" className="max-w-4xl font-semibold">
+          The tech landscape is constantly evolving, and so is my skill set.
+          Below are the tools and technologies I’ve worked with and know well.
+          If something isn’t listed, feel free to ask. I’m always quick to pick
+          new things up.
         </Text>
       </section>
 
@@ -24,7 +25,7 @@ export default function SkillsPage() {
         <Heading className="max-w-container mx-auto w-full sm:px-20 sm:text-[75px]">
           Front-End
         </Heading>
-        <div className="mx-auto max-w-7xl flex flex-wrap justify-center gap-2">
+        <div className="mx-auto max-w-7xl flex flex-wrap justify-center bg-citrus-zest p-8 rounded-3xl sm:w-3/4 gap-2">
           {exampleSkillObjListResponse.skills
             .filter((skill) => skill.category === "frontend")
             .map((skill, idx) => (
@@ -32,10 +33,10 @@ export default function SkillsPage() {
             ))}
         </div>
 
-        <Heading className="max-w-container mx-auto w-full sm:text-[75px] sm:px-20 mt-10 text-end ">
+        <Heading className="max-w-container mx-auto w-full sm:text-[75px] sm:px-20 text-end ">
           Back-End
         </Heading>
-        <div className="mx-auto max-w-7xl flex flex-wrap justify-center gap-2">
+        <div className="mx-auto max-w-7xl flex flex-wrap justify-center bg-citrus-zest p-8 rounded-3xl sm:w-3/4 gap-2">
           {exampleSkillObjListResponse.skills
             .filter((skill) => skill.category === "backend")
             .map((skill, idx) => (
@@ -43,12 +44,12 @@ export default function SkillsPage() {
             ))}
         </div>
 
-        <Heading className="max-w-container mx-auto w-full sm:px-20 mt-10 sm:text-[75px]">
-          Hosting
+        <Heading className="max-w-container mx-auto w-full sm:px-20 sm:text-[75px]">
+          Hosting + More
         </Heading>
-        <div className="mx-auto max-w-7xl flex flex-wrap justify-center gap-2">
+        <div className="mx-auto max-w-7xl flex flex-wrap justify-center bg-citrus-zest p-8 rounded-3xl sm:w-3/4 gap-2">
           {exampleSkillObjListResponse.skills
-            .filter((skill) => skill.category === "hosting")
+            .filter((skill) => skill.category === "other")
             .map((skill, idx) => (
               <SkillCard key={idx} skill={skill} />
             ))}

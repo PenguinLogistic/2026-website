@@ -7,7 +7,7 @@ export type SkillObject = {
   icon: string;
   experience: number;
   years: string;
-  category: "hosting" | "frontend" | "backend";
+  category: "frontend" | "backend" | "other";
 };
 
 export const exampleSkillObjListResponse: SkillObjListResponse = {
@@ -17,7 +17,7 @@ export const exampleSkillObjListResponse: SkillObjListResponse = {
       icon: "RiAmazonFill",
       experience: 4,
       years: "4+",
-      category: "hosting",
+      category: "other",
     },
     {
       name: "Google Cloud",
@@ -52,14 +52,14 @@ export const exampleSkillObjListResponse: SkillObjListResponse = {
       icon: "RiGoogleFill",
       experience: 3,
       years: "2+",
-      category: "hosting",
+      category: "other",
     },
     {
       name: "Microsoft Azure",
       icon: "RiMicrosoftFill",
       experience: 2,
       years: "6+",
-      category: "hosting",
+      category: "other",
     },
     {
       name: "Microsoft Azure",

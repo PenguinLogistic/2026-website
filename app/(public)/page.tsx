@@ -86,17 +86,16 @@ export default function Home() {
                 <motion.div variants={fadeItem}>
                   <Text variant="large" className="max-w-2xl pl-2 mt-6">
                     Welcome! I&apos;m a software developer based in{" "}
-                    <span className="font-bold">Toronto, Canada</span>.
-                    <br />
-                    Equipped with <span className="font-bold">6+ years</span> of
-                    professional working experience, I specialize in building{" "}
+                    <span className="font-bold">Toronto, Canada </span>
+                    with over <span className="font-bold">6 years</span> of
+                    professional working experience. I specialize in building{" "}
                     <span className="font-bold">web applications</span> and
-                    crafting user-centric digital experiences. Using my
-                    knowledge in{" "}
+                    crafting user-centric digital experiences. Leveraging
                     <span className="font-bold">
+                      {" "}
                       multiple programming languages and frameworks
                     </span>
-                    , I enjoy tackling complex problems and delivering
+                    ; I enjoy tackling complex problems and delivering
                     high-quality solutions.
                   </Text>
                 </motion.div>
@@ -105,7 +104,11 @@ export default function Home() {
                   <Text variant="large" className="max-w-2xl pl-2">
                     With a creative mindset and a passion for technology, I
                     thrive on transforming ideas into reality through code.
-                    <br />
+                  </Text>
+                </motion.div>
+
+                <motion.div variants={fadeItem}>
+                  <Text variant="large" className="max-w-2xl pl-2">
                     Explore my portfolio to see how I blend innovation and
                     functionality to create impactful solutions.
                   </Text>

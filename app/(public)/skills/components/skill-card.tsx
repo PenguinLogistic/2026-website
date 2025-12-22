@@ -2,6 +2,7 @@ import { SkillObject } from "@/api/skills/skills";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { ICONS } from "@/utils/constants";
+import StarRating from "./star-ratings";
 
 interface SkillCardProps {
   skill: SkillObject;
@@ -27,11 +28,14 @@ export default function SkillCard({ skill }: SkillCardProps) {
         {/* BACK */}
         <div className="absolute inset-0 backface-hidden rotate-y-180 h-full w-full">
           <div className="flex h-full w-full flex-col justify-center rounded-xl bg-blue-indigo text-center text-white shadow-lg gap-4">
+            <div className="flex justify-center items-center gap-2">
+              <Text variant="large" className="text-white font-semibold">
+                Experience:
+              </Text>
+              <StarRating value={skill.experience} />
+            </div>
             <Text variant="large" className="text-white font-semibold">
-              Familiarity: {skill.experience ?? "Add stars here"}/5
-            </Text>
-            <Text variant="large" className="text-white font-semibold">
-              Worked with for {skill.years ?? "Add stars here"} years
+              {skill.years ?? "1+"} years
             </Text>
           </div>
         </div>
