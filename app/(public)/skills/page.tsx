@@ -18,7 +18,7 @@ export default function SkillsPage() {
       </section>
 
       <section
-        id="about-me"
+        id="skill-cards"
         className="flex gap-20 p-10 w-full sm:p-20 bg-coastal-muted"
       >
         <div className="mx-auto flex max-w-container flex-wrap justify-center gap-2">
