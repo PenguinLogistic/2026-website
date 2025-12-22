@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import NavLink from "./navLink";
-import { Button } from "../button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -12,7 +12,7 @@ import {
   RiLinkedinBoxFill,
 } from "@remixicon/react";
 
-const navLinks = ["Home", "Experience", "Skills", "Contact"];
+const navLinks = ["Home", "Skills", "Contact"]; // Removed "Experience" for now
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +22,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const activeIndex = navLinks.findIndex(
-    (link) => pathname === `/${link}` || (pathname === "/" && link === "Home")
+    (link) =>
+      pathname === `/${link.toLowerCase()}` ||
+      (pathname === "/" && link === "Home")
   );
 
   useEffect(() => {
@@ -65,7 +67,8 @@ export default function Navbar() {
         scrolled && "bg-blue-night rounded-b-3xl shadow-lg"
       )}
     >
-      <div ref={navRef} className="relative flex mr-auto justify-between w-1/4">
+      <div ref={navRef} className="relative flex mr-auto justify-between w-1/6">
+        {/* // Changed w-1/6 to w-1/6 */}
         {navLinks.map((link, index) => (
           <NavLink
             key={link}
@@ -75,7 +78,6 @@ export default function Navbar() {
             onMouseLeave={() => setHoveredIndex(null)}
           />
         ))}
-
         <div
           className={cn(
             "absolute bottom-0 h-1 transition-all duration-300 ease-out",

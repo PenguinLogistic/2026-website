@@ -1,3 +1,32 @@
+import { Heading } from "@/components/ui/heading";
+import { Text } from "@/components/ui/text";
+import SkillCard from "./SkillCard";
+import { exampleSkillObjListResponse } from "@/api/skills/skills";
+
 export default function SkillsPage() {
-  return <div className="min-h-screen">Skills Page</div>;
+  return (
+    <div className="flex flex-col">
+      <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
+        <Heading variant="h1" className="font-bold">
+          What have I worked with?
+        </Heading>
+        <Text variant="large" className="max-w-2xl font-semibold">
+          There are alot of different choices and growing technologies nowadays.
+          Take a look and see if the ones I&apos;ve worked with are a good match
+          for your techstack.
+        </Text>
+      </section>
+
+      <section
+        id="about-me"
+        className="flex gap-20 p-10 w-full sm:p-20 bg-coastal-muted"
+      >
+        <div className="mx-auto flex max-w-container flex-wrap justify-center gap-2">
+          {exampleSkillObjListResponse.skills.map((skill, idx) => (
+            <SkillCard key={idx} skill={skill} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { motion } from "framer-motion";
@@ -113,7 +113,8 @@ export default function Home() {
 
                 <motion.div variants={fadeItem}>
                   <Button className="mt-5 self-start">
-                    <Link href="/experience">
+                    <Link href="/skills">
+                      {/* // should be experience later */}
                       <Text className=" font-semibold text-white">
                         Learn More
                       </Text>
