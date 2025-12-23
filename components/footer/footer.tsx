@@ -2,25 +2,26 @@
 
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
-import Link from "next/link";
+import { Heading } from "../ui/heading";
 import {
   RiGithubFill,
   RiLinkedinBoxFill,
   RiMailAddFill,
 } from "@remixicon/react";
-import { SILLY_QUOTES } from "@/utils/constants";
-import { useEffect, useState } from "react";
-import { Heading } from "../ui/heading";
-import { usePathname } from "next/navigation";
+// import { SILLY_QUOTES } from "@/utils/constants";
+// import { useEffect, useState } from "react";
+// import { usePathname } from "next/navigation";
+
+import Link from "next/link";
 
 export default function Footer() {
-  const pathname = usePathname();
-  const [quote, setQuote] = useState("");
+  // const pathname = usePathname();
+  // // const [quote, setQuote] = useState("");
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setQuote(SILLY_QUOTES[Math.floor(Math.random() * SILLY_QUOTES.length)]);
-  }, [pathname]);
+  // // useEffect(() => {
+  // //   // eslint-disable-next-line react-hooks/set-state-in-effect
+  // //   setQuote(SILLY_QUOTES[Math.floor(Math.random() * SILLY_QUOTES.length)]);
+  // // }, [pathname]);
 
   return (
     <div className="flex flex-col bg-blue-midnight gap-20 sm:p-20">
@@ -31,7 +32,7 @@ export default function Footer() {
               Ryan Fung
             </Heading>
             <Text variant="small" className="text-white">
-              Toronto, Canada &#8226; &copy; 2025-2026 Ryan Fung
+              Toronto, Canada &#8226; &copy; 2026-2027 Ryan Fung
             </Text>
           </div>
 

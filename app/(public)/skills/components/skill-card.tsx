@@ -1,4 +1,4 @@
-import { SkillObject } from "@/api/skills/skills";
+import { SkillObject } from "@/api/skills/types";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { ICONS } from "@/utils/constants";

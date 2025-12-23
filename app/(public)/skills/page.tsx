@@ -1,7 +1,7 @@
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import SkillCard from "./components/skill-card";
-import { exampleSkillObjListResponse } from "@/api/skills/skills";
+import { exampleSkillObjListResponse } from "@/api/skills/types";
 
 export default function SkillsPage() {
   return (
