@@ -1,5 +1,5 @@
 import { APIS } from "@/api/endpoints";
-import { get } from "@/api/requests";
+import { get } from "@/api/http";
 import { SkillObjListResponse } from "./responses";
 
 export const skills = {

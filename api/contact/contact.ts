@@ -1,5 +1,5 @@
 import { APIS } from "@/api/endpoints";
-import { get } from "@/api/requests";
+import { get } from "@/api/http";
 
 export const contact = {
   sendEmail: async () => {
