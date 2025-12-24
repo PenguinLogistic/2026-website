@@ -1,9 +1,16 @@
+"use client";
+
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
-import SkillCard from "./components/skill-card";
 import { exampleSkillObjListResponse } from "@/api/skills/types";
+import { api } from "@/api";
+import SkillCard from "./components/skill-card";
+import { useEffect } from "react";
 
 export default function SkillsPage() {
+  useEffect(() => {
+    api.skills.fetch();
+  }, []);
   return (
     <div className="flex flex-col">
       <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
