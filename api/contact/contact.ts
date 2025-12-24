@@ -1,10 +1,9 @@
 import { APIS } from "@/api/endpoints";
 import { get } from "@/api/requests";
-import { SkillObjListResponse } from "./responses";
 
-export const skills = {
-  fetch: async () => {
-    const endpoint = APIS.base("skills");
+export const contact = {
+  sendEmail: async () => {
+    const endpoint = APIS.base("email");
     const data = await get<{ status: string }>(endpoint);
     // will need to change back to SKillObjListResponse when we have real data
     return data;

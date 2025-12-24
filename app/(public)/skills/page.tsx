@@ -17,7 +17,7 @@ export default function SkillsPage() {
         <Heading variant="h1" className="font-bold sm:text-[75px]">
           What have I worked with?
         </Heading>
-        <Text variant="large" className="max-w-4xl font-semibold">
+        <Text variant="large" className="max-w-4xl font-normal">
           The tech landscape is constantly evolving, and so is my skill set.
           Below are the tools and technologies I’ve worked with and know well.
           If something isn’t listed, feel free to ask. I’m always quick to pick
