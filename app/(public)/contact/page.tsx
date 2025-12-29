@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { FormField } from "@/components/ui/formfield";
 import { Input } from "@/components/ui/input";
 import { TextArea } from "@/components/ui/textarea";
+import { EMAIL_MESSAGE_MAX_LENGTH } from "@/utils/constants";
 
 export default function ContactPage() {
   const form = useForm<ContactFormValues>({
@@ -30,7 +31,6 @@ export default function ContactPage() {
     },
     onSuccess: (res) => {
       form.reset();
-      console.log(res.success);
       //toast later
     },
     onError: () => {
@@ -85,6 +85,8 @@ export default function ContactPage() {
                   {...register("message")}
                   placeholder="Tell me about what you need..."
                   aria-invalid={!!errors.message}
+                  maxLength={EMAIL_MESSAGE_MAX_LENGTH}
+                  showCounter
                 />
               </FormField>
 

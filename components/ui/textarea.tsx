@@ -20,16 +20,33 @@ const textareaVariants = cva(
 
 export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    VariantProps<typeof textareaVariants> {}
+    VariantProps<typeof textareaVariants> {
+  showCounter?: boolean;
+}
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ className, variant, ...props }, ref) => {
+  ({ className, variant, showCounter = false, maxLength, ...props }, ref) => {
+    const [length, setLength] = React.useState(
+      props.value ? String(props.value).length : 0
+    );
+
     return (
-      <textarea
-        ref={ref}
-        className={cn(textareaVariants({ variant }), className)}
-        {...props}
-      />
+      <div className="relative">
+        <textarea
+          ref={ref}
+          className={cn(textareaVariants({ variant }), className)}
+          {...props}
+          onChange={(e) => {
+            setLength(e.target.value.length);
+            props.onChange?.(e);
+          }}
+        />
+        {showCounter && maxLength && (
+          <span className="absolute right-2 bottom-2 text-xs text-gray-500">
+            {length} / {maxLength}
+          </span>
+        )}
+      </div>
     );
   }
 );

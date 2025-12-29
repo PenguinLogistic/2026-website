@@ -20,3 +20,5 @@ export const ICONS: Record<string, RemixiconComponentType> = {
   RiGoogleFill,
   RiQuestionMark,
 };
+
+export const EMAIL_MESSAGE_MAX_LENGTH = 2000;
