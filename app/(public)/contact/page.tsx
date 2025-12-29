@@ -28,9 +28,10 @@ export default function ContactPage() {
       //data can be used to send email payload later
       return api.contact.sendEmail(data);
     },
-    onSuccess: () => {
+    onSuccess: (res) => {
       form.reset();
-      console.log("success");
+      console.log(res.success);
+      //toast later
     },
     onError: () => {
       console.log("error");
@@ -38,7 +39,6 @@ export default function ContactPage() {
   });
 
   const handleEmail = (data: ContactFormValues) => {
-    console.log("Form Data:", data);
     mutateEmail(data);
   };
 
