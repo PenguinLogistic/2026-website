@@ -8,16 +8,25 @@ import { contactSchema, type ContactFormValues } from "./schema";
 import { useMutation } from "@tanstack/react-query";
 import { api } from "@/api";
 import { Button } from "@/components/ui/button";
+import { FormField } from "@/components/ui/formfield";
+import { Input } from "@/components/ui/input";
+import { TextArea } from "@/components/ui/textarea";
 
 export default function ContactPage() {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
   });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = form;
+
   const { mutate: mutateEmail, isPending } = useMutation({
     mutationFn: (data: ContactFormValues) => {
       //data can be used to send email payload later
-      return api.contact.sendEmail();
+      return api.contact.sendEmail(data);
     },
     onSuccess: () => {
       form.reset();
@@ -53,22 +62,36 @@ export default function ContactPage() {
         className="flex flex-col gap-20 p-10 w-full sm:p-20 bg-citrus-gold"
       >
         <div className="max-w-container mx-auto w-full sm:px-20">
-          <form onSubmit={form.handleSubmit(handleEmail)}>
-            <input
-              {...form.register("name")}
-              className="border border-black bg-white text-black p-2"
-            />
-            <input
-              {...form.register("email")}
-              className="border border-black bg-white text-black p-2"
-            />
-            <textarea
-              {...form.register("message")}
-              className="border border-black bg-white text-black p-2 h-32"
-            />
-            <Button type="submit" disabled={isPending}>
-              {isPending ? "Sending..." : "Send Message"}
-            </Button>
+          <form onSubmit={handleSubmit(handleEmail)}>
+            <div className="flex flex-col w-2/3 gap-4 mx-auto">
+              <FormField label="Email" error={errors.email}>
+                <Input
+                  {...register("email")}
+                  placeholder="example@domain.com"
+                  aria-invalid={!!errors.email}
+                />
+              </FormField>
+
+              <FormField label="Subject" error={errors.subject}>
+                <Input
+                  {...register("subject")}
+                  placeholder="What’s this about?"
+                  aria-invalid={!!errors.subject}
+                />
+              </FormField>
+
+              <FormField label="Message" error={errors.message}>
+                <TextArea
+                  {...register("message")}
+                  placeholder="Tell me about what you need..."
+                  aria-invalid={!!errors.message}
+                />
+              </FormField>
+
+              <Button type="submit" className="self-start" disabled={isPending}>
+                {isPending ? "Sending..." : "Send Message"}
+              </Button>
+            </div>
           </form>
         </div>
       </section>
