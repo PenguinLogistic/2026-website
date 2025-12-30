@@ -12,6 +12,10 @@ import { FormField } from "@/components/ui/formfield";
 import { Input } from "@/components/ui/input";
 import { TextArea } from "@/components/ui/textarea";
 import { EMAIL_MESSAGE_MAX_LENGTH } from "@/utils/constants";
+import { motion } from "framer-motion";
+import { FadeIn } from "@/components/animations/FadeIn";
+import { Stagger } from "@/components/animations/Stagger";
+import { fadeInLeft, fadeItem } from "@/utils/animation";
 
 export default function ContactPage() {
   const form = useForm<ContactFormValues>({
@@ -45,16 +49,25 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col">
       <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
-        <Heading variant="h1" className="font-bold sm:text-[75px]">
-          Get in Touch
-        </Heading>
-        <Text variant="large" className="max-w-4xl font-normal">
-          I’m always open to discussing new projects, creative ideas, or
-          opportunities to be part of your visions. Feel free to reach out and
-          send me a message anytime using the forms below. Or you can email me
-          directly at{" "}
-          <span className="font-bold">ryan.shiuhong.fung@gmail.com</span>.
-        </Text>
+        <FadeIn variants={fadeInLeft} className="flex flex-col gap-4">
+          <Stagger className="flex flex-col gap-4">
+            <motion.div variants={fadeItem}>
+              <Heading variant="h1" className="font-bold sm:text-[75px]">
+                Get in Touch
+              </Heading>
+            </motion.div>
+
+            <motion.div variants={fadeItem}>
+              <Text variant="large" className="max-w-4xl font-normal">
+                I’m always open to discussing new projects, creative ideas, or
+                opportunities to be part of your visions. Feel free to reach out
+                and send me a message anytime using the forms below. Or you can
+                email me directly at{" "}
+                <span className="font-bold">ryan.shiuhong.fung@gmail.com</span>.
+              </Text>
+            </motion.div>
+          </Stagger>
+        </FadeIn>
       </section>
 
       <section
