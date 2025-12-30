@@ -3,14 +3,12 @@
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { exampleSkillObjListResponse } from "@/api/skills/types";
-import { api } from "@/api";
 import SkillCard from "./components/skill-card";
-import { useEffect } from "react";
+import { useSkills } from "@/app/providers/skills-provider";
 
 export default function SkillsPage() {
-  useEffect(() => {
-    api.skills.fetch();
-  }, []);
+  const { skills } = useSkills();
+
   return (
     <div className="flex flex-col">
       <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
@@ -33,7 +31,7 @@ export default function SkillsPage() {
           Front-End
         </Heading>
         <div className="mx-auto max-w-7xl flex flex-wrap justify-center bg-citrus-zest p-8 rounded-3xl sm:w-3/4 gap-2">
-          {exampleSkillObjListResponse.skills
+          {skills
             .filter((skill) => skill.category === "frontend")
             .map((skill, idx) => (
               <SkillCard key={idx} skill={skill} />
@@ -44,7 +42,7 @@ export default function SkillsPage() {
           Back-End
         </Heading>
         <div className="mx-auto max-w-7xl flex flex-wrap justify-center bg-citrus-zest p-8 rounded-3xl sm:w-3/4 gap-2">
-          {exampleSkillObjListResponse.skills
+          {skills
             .filter((skill) => skill.category === "backend")
             .map((skill, idx) => (
               <SkillCard key={idx} skill={skill} />
@@ -55,7 +53,7 @@ export default function SkillsPage() {
           Hosting + More
         </Heading>
         <div className="mx-auto max-w-7xl flex flex-wrap justify-center bg-citrus-zest p-8 rounded-3xl sm:w-3/4 gap-2">
-          {exampleSkillObjListResponse.skills
+          {skills
             .filter((skill) => skill.category === "other")
             .map((skill, idx) => (
               <SkillCard key={idx} skill={skill} />

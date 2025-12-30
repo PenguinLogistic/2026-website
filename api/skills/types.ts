@@ -1,10 +1,10 @@
 import { SkillObjListResponse } from "./responses";
 
 export type SkillObject = {
-  name: string;
+  skill_name: string;
   icon: string;
-  experience: number;
-  years: string;
+  experience_lv: number;
+  experience_yr: string;
   category: "frontend" | "backend" | "other";
 };
 

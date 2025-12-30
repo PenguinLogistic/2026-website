@@ -63,7 +63,7 @@ export default function ContactPage() {
       >
         <div className="max-w-container mx-auto w-full sm:px-20">
           <form onSubmit={handleSubmit(handleEmail)}>
-            <div className="flex flex-col w-2/3 gap-4 mx-auto">
+            <div className="flex flex-col w-5/6 gap-4 mx-auto">
               <FormField label="Email" error={errors.email}>
                 <Input
                   {...register("email")}
@@ -90,8 +90,14 @@ export default function ContactPage() {
                 />
               </FormField>
 
-              <Button type="submit" className="self-start" disabled={isPending}>
-                {isPending ? "Sending..." : "Send Message"}
+              <Button
+                type="submit"
+                className="self-start mt-4"
+                disabled={isPending}
+              >
+                <Text className=" font-semibold text-white">
+                  {isPending ? "Sending..." : "Send Message"}
+                </Text>
               </Button>
             </div>
           </form>

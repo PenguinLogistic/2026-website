@@ -5,8 +5,7 @@ import { SkillObjListResponse } from "./responses";
 export const skills = {
   fetch: async () => {
     const endpoint = APIS.base("skills");
-    const data = await get<{ status: string }>(endpoint);
-    // will need to change back to SKillObjListResponse when we have real data
+    const data = await get<SkillObjListResponse>(endpoint);
     return data;
   },
 };

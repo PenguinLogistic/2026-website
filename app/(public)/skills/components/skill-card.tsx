@@ -20,7 +20,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
           <div className="flex flex-col py-15 px-17 bg-blue-night rounded-xl shadow-lg gap-6 items-center">
             <Icon size={48} className="text-white my-2" />
             <Heading variant="h2" className="text-white font-semibold">
-              {skill.name}
+              {skill.skill_name}
             </Heading>
           </div>
         </div>
@@ -32,10 +32,10 @@ export default function SkillCard({ skill }: SkillCardProps) {
               <Text variant="large" className="text-white font-semibold">
                 Experience:
               </Text>
-              <StarRating value={skill.experience} />
+              <StarRating value={skill.experience_lv} />
             </div>
             <Text variant="large" className="text-white font-semibold">
-              {skill.years ?? "1+"} years
+              {skill.experience_yr ?? "1+"} years
             </Text>
           </div>
         </div>
