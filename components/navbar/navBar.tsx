@@ -105,7 +105,7 @@ export default function Navbar() {
         </Button>
         <Button asChild variant="invisible">
           <Link
-            href="https://www.linkedin.com/in/ryan-f-02484a117/"
+            href="https://www.linkedin.com/in/ryan-sh-fung/"
             target="_blank"
             rel="noopener noreferrer"
           >

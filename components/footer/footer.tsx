@@ -72,14 +72,14 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <Button asChild variant="invisible" className="p-0">
                 <Link
-                  href="https://www.linkedin.com/in/ryan-f-02484a117/"
+                  href="https://www.linkedin.com/in/ryan-sh-fung/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-4"
                 >
                   <RiLinkedinBoxFill className="text-white" />
                   <Text variant="small" className="text-white hover:underline">
-                    https://www.linkedin.com/in/ryan-f-02484a117/
+                    https://www.linkedin.com/in/ryan-sh-fung/
                   </Text>
                 </Link>
               </Button>
