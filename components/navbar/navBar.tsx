@@ -115,15 +115,14 @@ export default function Navbar() {
             />
           </Link>
         </Button>
-        <Button
-          variant="invisible"
-          onClick={() => console.log("this should download a resume")}
-        >
-          <RiDownloadFill
-            className={cn("text-black", scrolled && "text-white")}
-            size={48}
-          />
-        </Button>
+        <a href="/Ryan Fung - Fullstack Software Developer.pdf" download>
+          <Button variant="invisible">
+            <RiDownloadFill
+              className={cn("text-black", scrolled && "text-white")}
+              size={48}
+            />
+          </Button>
+        </a>
       </div>
     </header>
   );
