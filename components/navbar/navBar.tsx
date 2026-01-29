@@ -3,19 +3,26 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import NavLink from "./navLink";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import { Text } from "@/components/ui/text";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  RiCloseCircleFill,
+  RiCloseLine,
+  RiCrossFill,
   RiDownloadFill,
   RiGithubFill,
   RiLinkedinBoxFill,
+  RiMenu3Fill,
 } from "@remixicon/react";
+import Hamburger from "./hamburger";
 
 const navLinks = ["Home", "Skills", "Contact"]; // Removed "Experience" for now
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const navRef = useRef<HTMLDivElement>(null);
@@ -63,66 +70,83 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex px-20 py-10 bg-citrus-snow transition-colors duration-300",
+        "sticky top-0 z-50 flex px-10 py-10 bg-citrus-snow transition-colors duration-300 sm:px-20 sm:py-10",
         scrolled && "bg-blue-night rounded-b-3xl shadow-lg"
       )}
     >
-      <div ref={navRef} className="relative flex mr-auto justify-between w-1/6">
-        {/* // Changed w-1/6 to w-1/6 */}
-        {navLinks.map((link, index) => (
-          <NavLink
-            key={link}
-            scrolled={scrolled}
-            label={link.toLowerCase()}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          />
-        ))}
+      {/*Desktop*/}
+      <div id="desktop-nav" className="hidden sm:flex justify-between w-full">
         <div
-          className={cn(
-            "absolute bottom-0 h-1 transition-all duration-300 ease-out",
-            scrolled ? "bg-white" : "bg-black"
-          )}
-          style={{
-            left: `${underlineStyle.left}px`,
-            width: `${underlineStyle.width}px`,
-          }}
-        />
+          ref={navRef}
+          className="relative flex mr-auto justify-between w-1/6"
+        >
+          {/* // Changed w-1/6 to w-1/6 */}
+          {navLinks.map((link, index) => (
+            <NavLink
+              key={link}
+              scrolled={scrolled}
+              label={link.toLowerCase()}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            />
+          ))}
+          <div
+            className={cn(
+              "absolute bottom-0 h-1 transition-all duration-300 ease-out",
+              scrolled ? "bg-white" : "bg-black"
+            )}
+            style={{
+              left: `${underlineStyle.left}px`,
+              width: `${underlineStyle.width}px`,
+            }}
+          />
+        </div>
+
+        <div className="flex gap-10">
+          <Button asChild variant="invisible">
+            <Link
+              href="https://github.com/PenguinLogistic/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RiGithubFill
+                className={cn("text-black", scrolled && "text-white")}
+                size={48}
+              />
+            </Link>
+          </Button>
+          <Button asChild variant="invisible">
+            <Link
+              href="https://www.linkedin.com/in/ryan-sh-fung/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RiLinkedinBoxFill
+                className={cn("text-black", scrolled && "text-white")}
+                size={48}
+              />
+            </Link>
+          </Button>
+          <a href="/Ryan Fung - Fullstack Software Developer.pdf" download>
+            <Button variant="invisible">
+              <RiDownloadFill
+                className={cn("text-black", scrolled && "text-white")}
+                size={48}
+              />
+            </Button>
+          </a>
+        </div>
       </div>
 
-      <div className="flex gap-10">
-        <Button asChild variant="invisible">
-          <Link
-            href="https://github.com/PenguinLogistic/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <RiGithubFill
-              className={cn("text-black", scrolled && "text-white")}
-              size={48}
-            />
-          </Link>
-        </Button>
-        <Button asChild variant="invisible">
-          <Link
-            href="https://www.linkedin.com/in/ryan-sh-fung/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <RiLinkedinBoxFill
-              className={cn("text-black", scrolled && "text-white")}
-              size={48}
-            />
-          </Link>
-        </Button>
-        <a href="/Ryan Fung - Fullstack Software Developer.pdf" download>
-          <Button variant="invisible">
-            <RiDownloadFill
-              className={cn("text-black", scrolled && "text-white")}
-              size={48}
-            />
-          </Button>
-        </a>
+      {/*Mobile*/}
+      <div id="mobile-nav" className="flex flex-col sm:hidden w-full">
+        <Hamburger
+          mobileOpen={mobileOpen}
+          setMobileOpen={setMobileOpen}
+          scrolled={scrolled}
+        />
+
+        {mobileOpen && <div>wowasdfasfasefasef</div>}
       </div>
     </header>
   );
