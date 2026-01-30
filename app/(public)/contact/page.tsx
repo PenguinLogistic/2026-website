@@ -30,7 +30,6 @@ export default function ContactPage() {
 
   const { mutate: mutateEmail, isPending } = useMutation({
     mutationFn: (data: ContactFormValues) => {
-      //data can be used to send email payload later
       return api.contact.sendEmail(data);
     },
     onSuccess: (res) => {
@@ -48,7 +47,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
+      <section className="flex flex-col mx-auto w-full max-w-container gap-6 p-10 sm:p-20">
         <FadeIn variants={fadeInLeft} className="flex flex-col gap-4">
           <Stagger className="flex flex-col gap-4">
             <motion.div variants={fadeItem}>

@@ -15,7 +15,7 @@ export default function SkillsPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="flex flex-col mx-auto w-full max-w-container gap-6 sm:p-20">
+      <section className="flex flex-col mx-auto w-full max-w-container gap-6 p-10 sm:p-20">
         <FadeIn variants={fadeInLeft} className="flex flex-col gap-4">
           <Stagger className="flex flex-col gap-4">
             <motion.div variants={fadeItem}>
@@ -36,9 +36,10 @@ export default function SkillsPage() {
         </FadeIn>
       </section>
 
+      {/*Desktop*/}
       <section
         id="skill-cards"
-        className="flex flex-col gap-20 p-10 w-full sm:p-20 bg-blue-mist"
+        className="flex flex-col gap-20 p-10 w-full sm:p-20 bg-blue-mist hidden sm:block"
       >
         <FadeIn variants={fadeInLeft} className="flex flex-col gap-4">
           <Stagger className="flex flex-col gap-4">
@@ -97,6 +98,55 @@ export default function SkillsPage() {
             </motion.div>
           </Stagger>
         </FadeIn>
+      </section>
+
+      {/*Mobile*/}
+      <section
+        id="skill-cards-mobile"
+        className="flex flex-col gap-6 p-10 w-full sm:p-20 bg-blue-mist block sm:hidden"
+      >
+        <Heading>Front-End</Heading>
+        <div className="flex flex-col bg-citrus-zest p-8 rounded-3xl w-full gap-2">
+          {skills
+            .filter((skill) => skill.category === "frontend")
+            .map((skill, idx) => (
+              <Text
+                key={idx}
+                variant="large"
+                className="w-full font-semibold break-words"
+              >
+                • {skill.skill_name}
+              </Text>
+            ))}
+        </div>
+        <Heading>Back-End</Heading>
+        <div className="flex flex-col bg-citrus-zest p-8 rounded-3xl w-full gap-2">
+          {skills
+            .filter((skill) => skill.category === "backend")
+            .map((skill, idx) => (
+              <Text
+                key={idx}
+                variant="large"
+                className="w-full font-semibold break-words"
+              >
+                • {skill.skill_name}
+              </Text>
+            ))}
+        </div>
+        <Heading>Hosting + More</Heading>
+        <div className="flex flex-col bg-citrus-zest p-8 rounded-3xl w-full gap-2">
+          {skills
+            .filter((skill) => skill.category === "other")
+            .map((skill, idx) => (
+              <Text
+                key={idx}
+                variant="large"
+                className="w-full font-semibold break-words"
+              >
+                • {skill.skill_name}
+              </Text>
+            ))}
+        </div>
       </section>
     </div>
   );
