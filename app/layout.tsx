@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { QueryProvider } from "./providers/query-provider";
 import { SkillsProvider } from "./providers/skills-provider";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-citrus-snow">
         <QueryProvider>
-          <SkillsProvider>{children}</SkillsProvider>
+          <SkillsProvider>
+            {children}
+            <ToastContainer />
+          </SkillsProvider>
         </QueryProvider>
       </body>
     </html>

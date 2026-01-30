@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Stagger } from "@/components/animations/Stagger";
 import { fadeInLeft, fadeItem } from "@/utils/animation";
+import { toast } from "react-toastify";
 
 export default function ContactPage() {
   const form = useForm<ContactFormValues>({
@@ -34,10 +35,13 @@ export default function ContactPage() {
     },
     onSuccess: (res) => {
       form.reset();
-      //toast later
+      toast.success("Email Sent!", {
+        position: "bottom-right",
+        theme: "colored",
+      });
     },
     onError: () => {
-      console.log("error");
+      toast.error("Email failed to send.");
     },
   });
 
