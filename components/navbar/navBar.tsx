@@ -1,24 +1,28 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
 import NavLink from "./navLink";
-import { Button } from "@/components/ui/button";
+import Hamburger from "./hamburger";
 import { Text } from "@/components/ui/text";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import {
-  RiCloseCircleFill,
-  RiCloseLine,
-  RiCrossFill,
+  RiCodeSSlashLine,
   RiDownloadFill,
   RiGithubFill,
+  RiHome5Line,
   RiLinkedinBoxFill,
-  RiMenu3Fill,
+  RiMailLine,
 } from "@remixicon/react";
-import Hamburger from "./hamburger";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
 
-const navLinks = ["Home", "Skills", "Contact"]; // Removed "Experience" for now
+const navLinks = [
+  { label: "Home", href: "", icon: RiHome5Line },
+  { label: "Skills", href: "skills", icon: RiCodeSSlashLine },
+  { label: "Contact", href: "contact", icon: RiMailLine },
+  // Removed "Experience" for now
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,8 +34,8 @@ export default function Navbar() {
 
   const activeIndex = navLinks.findIndex(
     (link) =>
-      pathname === `/${link.toLowerCase()}` ||
-      (pathname === "/" && link === "Home")
+      pathname === `/${link.label.toLowerCase()}` ||
+      (pathname === "/" && link.label === "Home")
   );
 
   useEffect(() => {
@@ -70,8 +74,8 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex px-10 py-10 bg-citrus-snow transition-colors duration-300 sm:px-20 sm:py-10",
-        scrolled && "bg-blue-night rounded-b-3xl shadow-lg"
+        "sticky top-0 z-50 flex px-6 py-4 bg-citrus-snow transition-colors duration-300 sm:px-20 sm:py-10",
+        scrolled && "bg-blue-night sm:rounded-b-3xl shadow-lg"
       )}
     >
       {/*Desktop*/}
@@ -83,9 +87,9 @@ export default function Navbar() {
           {/* // Changed w-1/6 to w-1/6 */}
           {navLinks.map((link, index) => (
             <NavLink
-              key={link}
+              key={link.label}
               scrolled={scrolled}
-              label={link.toLowerCase()}
+              label={link.label.toLowerCase()}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             />
@@ -146,7 +150,71 @@ export default function Navbar() {
           scrolled={scrolled}
         />
 
-        {mobileOpen && <div>wowasdfasfasefasef</div>}
+        <div
+          className={cn(
+            "absolute left-0 top-full w-full z-40 transition-all duration-300 ease-out",
+            "origin-top",
+            mobileOpen
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-4 pointer-events-none",
+            scrolled ? "bg-blue-night text-white" : "bg-citrus-snow shadow-xl"
+          )}
+        >
+          <div className="flex flex-col p-6 gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={`/${link.href}`}
+                className="text-2xl font-bold self-end flex gap-2 items-center "
+                onClick={() => setMobileOpen(false)}
+              >
+                <>
+                  {link.label}
+                  {link.icon && <link.icon className="inline ml-2" size={48} />}
+                </>
+              </Link>
+            ))}
+            <div className="flex flex-col items-end gap-6">
+              <Link
+                href="https://github.com/PenguinLogistic/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "flex items-center gap-2 transition-colors duration-300",
+                  scrolled ? "text-white" : "text-black"
+                )}
+              >
+                <Text className="text-2xl font-bold">Github</Text>
+                <RiGithubFill size={48} />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/ryan-sh-fung/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "flex items-center gap-2 text-2xl font-bold transition-colors duration-300",
+                  scrolled ? "text-white" : "text-black"
+                )}
+              >
+                <Text className="text-2xl font-bold">LinkedIn</Text>
+                <RiLinkedinBoxFill size={48} />
+              </Link>
+
+              <Link
+                href="/Ryan Fung - Fullstack Software Developer.pdf"
+                download
+                className={cn(
+                  "flex items-center gap-2 text-2xl font-bold transition-colors duration-300",
+                  scrolled ? "text-white" : "text-black"
+                )}
+              >
+                <Text className="text-2xl font-bold">Resume</Text>
+                <RiDownloadFill size={48} />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
